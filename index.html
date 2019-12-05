@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Croagh Patrick Heritage Trail Map/Route</title>
+	<meta name="description" content="#">
+	<meta name="keywords" content="#">
+	
+	<meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="jquery.maphilight.min.js"></script>
+	
+	<script type="text/javascript">
+		// jQuery maphilight function (maphilight applies to images with a 'usemap' attribute, and outlines the areas defined in their map on mouseover).
+		$(function() {
+			$('.map').maphilight();
+		});
+	</script>
+	
+	<style>	
+		.map {
+			width: 1370px;
+			height: 982px;
+			margin: 0 auto;
+			display: block;
+		}
+		
+		area {
+			cursor: pointer;
+		}
+		
+		/* pop-up. based on this tutorial: https://sabe.io/tutorials/how-to-create-modal-popup-box */
+		.modal {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			opacity: 0;
+			visibility: hidden;
+			transform: scale(1.1);
+			transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+		}
+		
+		.modal-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: white;
+			padding: 4px;
+			width: 26%;
+			border-radius: 30px;
+		}
+		
+		.show-modal {
+			opacity: 1;
+			visibility: visible;
+			transform: scale(1.0);
+			transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+		}
+		
+		.close-button {
+			position: absolute; 
+			right: -8%; 
+			top: -8%;
+			width: 10%;
+			cursor: pointer;
+			background-color: #fff;
+			padding: 6px 6px 4px 6px;
+			border-radius: 50%;
+		}
+		
+		.close-button img {
+			width: 100%;
+		}
+		
+		.prev {
+			position: absolute; 
+			left: -10%; 
+			top: 43%;
+			width: 10%;
+			padding: 2px 2px 2px 0;
+			cursor: pointer;
+			background-color: #fff;
+		}
+		
+		.next {
+			position: absolute; 
+			right: -10%; 
+			top: 43%;
+			width: 10%;
+			padding: 2px 2px 2px 0;
+			cursor: pointer;
+			background-color: #fff;
+		}
+		
+		.prev img, .next img {
+			width: 100%;
+		}
+		
+		#change img {
+			width: 100%;
+			border-radius: 30px;
+		}
+	</style>
+	
+</head>
+
+<body>
+
+	<div id="map_box">
+		<img class="map" src="images/map.png" alt="#" usemap="#heritagetrailmap">
+	</div>
+	
+	<div class="modal">
+	
+		<div class="modal-content">	
+			<span class="close-button"><img src="images/cancel.png" /></span>
+			<div id="change">Croagh Patrick Heritage Trail Map/Route</div>
+			<!-- <span class="prev"><img src="images/back.png" /></span>
+			<span class="next"><img src="images/next.png" /></span> -->
+		</div>
+	</div>
+	
+	<map name="heritagetrailmap">
+		<area id="trigger_1" onclick="nameIt()" shape="circle" coords="1308, 415, 21" alt="Balla">
+		<area id="trigger_2" onclick="nameIt2()" shape="circle" coords="1179, 416, 12" alt="Loona">
+		<area id="trigger_3" onclick="nameIt3()" shape="circle" coords="1093, 476, 11" alt="Doonamoona Castle" >
+		<area id="trigger_4" onclick="nameIt4()" shape="circle" coords="1125, 552, 12" alt="Monastic Enclosure" >
+		<area id="trigger_5" onclick="nameIt5()" shape="circle" coords="1033, 615, 12" alt="Clogher" >
+		<area id="trigger_6" onclick="nameIt6()" shape="circle" coords="923, 618, 12" alt="Ballintubber Abbey" >
+		<area id="trigger_7" onclick="nameIt7()" shape="circle" coords="738, 597, 12" alt="Killawalla" >
+		<area id="trigger_8" onclick="nameIt8()" shape="circle" coords="457, 587, 12" alt="Aughagower" >
+		<area id="trigger_9" onclick="nameIt9()" shape="circle" coords="228, 639, 12" alt="Boheh Stone" >
+		<area id="trigger_10" onclick="nameIt10()" shape="circle" coords="64, 515, 21" alt="Murrisk" >
+	</map>
+	
+<script>
+	// -------onclick functions-----------
+	function nameIt() {
+		document.getElementById("change").innerHTML = '<img src="images/img1.png"/>';
+	}	
+	function nameIt2() {
+		document.getElementById("change").innerHTML = '<img src="images/img2.png"/>'
+	}
+	function nameIt3() {
+		document.getElementById("change").innerHTML = '<img src="images/img3.png"/>'
+	}
+	function nameIt4() {
+		document.getElementById("change").innerHTML = '<img src="images/img4.png"/>'
+	}
+	function nameIt5() {
+		document.getElementById("change").innerHTML = '<img src="images/img5.png"/>'
+	}
+	function nameIt6() {
+		document.getElementById("change").innerHTML = '<img src="images/img6.png"/>'
+	}
+	function nameIt7() {
+		document.getElementById("change").innerHTML = '<img src="images/img7.png"/>'
+	}
+	function nameIt8() {
+		document.getElementById("change").innerHTML = '<img src="images/img8.png"/>'
+	}
+	function nameIt9() {
+		document.getElementById("change").innerHTML = '<img src="images/img9.png"/>'
+	}
+	function nameIt10() {
+		document.getElementById("change").innerHTML = '<img src="images/img10.png"/>'
+	}
+	
+	// popup window
+	var modal = document.querySelector(".modal");
+
+	var trigger1 = document.querySelector("#trigger_1");
+	var trigger2 = document.querySelector("#trigger_2");
+	var trigger3 = document.querySelector("#trigger_3");
+	var trigger4 = document.querySelector("#trigger_4");
+	var trigger5 = document.querySelector("#trigger_5");
+	var trigger6 = document.querySelector("#trigger_6");
+	var trigger7 = document.querySelector("#trigger_7");
+	var trigger8 = document.querySelector("#trigger_8");
+	var trigger9 = document.querySelector("#trigger_9");
+	var trigger10 = document.querySelector("#trigger_10");
+	
+	var closeButton = document.querySelector(".close-button");
+	
+	function toggleModal() {
+		modal.classList.toggle("show-modal");
+	}
+
+	function windowOnClick(event) {
+		if (event.target === modal) {
+			toggleModal();
+		}
+	}
+	
+	trigger1.addEventListener("click", toggleModal);
+	trigger2.addEventListener("click", toggleModal);
+	trigger3.addEventListener("click", toggleModal);
+	trigger4.addEventListener("click", toggleModal);
+	trigger5.addEventListener("click", toggleModal);
+	trigger6.addEventListener("click", toggleModal);
+	trigger7.addEventListener("click", toggleModal);
+	trigger8.addEventListener("click", toggleModal);
+	trigger9.addEventListener("click", toggleModal);
+	trigger10.addEventListener("click", toggleModal);
+	
+	closeButton.addEventListener("click", toggleModal);
+
+	window.addEventListener("click", windowOnClick);
+	</script>
+
+</body>
+</html>
