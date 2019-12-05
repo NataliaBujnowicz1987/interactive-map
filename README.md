@@ -1,4 +1,4 @@
-# interactive-map
-Heritage Trail Map - Croagh Patrick
+# Heritage Trail Map - Croagh Patrick
+Interactive Map
 
-https://nataliabujnowicz1987.github.io/interactive-map/index.html
+https://nataliabujnowicz1987.github.io/interactive-map/
